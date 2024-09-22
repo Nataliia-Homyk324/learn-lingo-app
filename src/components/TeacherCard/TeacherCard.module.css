@@ -1,0 +1,37 @@
+.teacherCard {
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.teacherAvatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+}
+
+.teacherInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.teacherInfo h2 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+}
+
+.teacherInfo p {
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+.teacherInfo strong {
+    font-weight: bold;
+}
