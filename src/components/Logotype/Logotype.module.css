@@ -1,0 +1,28 @@
+.wrapper{
+    display: flex;
+    gap:8px
+}
+
+.ukraine{
+    width: 28px;
+    height: 28px;
+}
+
+    
+.icon{
+    width: 28px;
+    height: 28px;
+
+}
+
+.logotype{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #121417;
+}
+.logotype:hover {
+    color: #f4c550;
+}

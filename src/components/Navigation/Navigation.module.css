@@ -1,0 +1,90 @@
+.container {
+    width: 100%;
+    padding: 24px 128px;
+    background-color: #fff;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.headerNav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-grow: 1;
+
+}
+
+.navLink {
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: #101828;
+    line-height: 1.5;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLinkActive {
+    color: #f4c550;
+}
+
+.navLink:hover,
+.navLink:focus {
+    color: #f4c550;
+}
+
+.button{
+    border-radius: 12px;
+        padding: 14px 39px;
+        width: 166px;
+        height: 48px;
+        background: #121417;
+        color: #FFF;
+        border: none;
+        margin-right: 32px;
+}
+.button:hover,
+.button:focus{
+    background-color: gray;
+
+}
+.login{
+    font-weight: 700;
+        font-size: 16px;
+        line-height: 125%;
+        color: #121417;
+        border: none;
+}
+
+.login:hover,
+.login:focus {
+    color: #f4c550;
+}
+.icon{
+    width: 20px;
+    height: 20px;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-right: 64px;
+}
+.ukraine{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

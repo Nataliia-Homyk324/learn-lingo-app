@@ -1,11 +1,11 @@
-import "./App.module.css";
+import Navigation from "../Navigation/Navigation.jsx";
+import RouteSection from "../RouteSection/RouteSection";
 
-function App() {
+export default function App() {
   return (
     <>
-      <h1>App</h1>
+      <Navigation />
+      <RouteSection />
     </>
   );
 }
-
-export default App;
