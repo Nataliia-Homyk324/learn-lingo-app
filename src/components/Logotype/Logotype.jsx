@@ -1,6 +1,6 @@
 import style from "./Logotype.module.css";
 import { Link } from "react-router-dom";
-import icons from "../../../public/icons.svg";
+import icons from "../../assets/img/icons.svg";
 
 const Logotype = () => {
   return (
