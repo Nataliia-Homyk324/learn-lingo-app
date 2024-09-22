@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 import style from "./Navigation.module.css";
 import clsx from "clsx";
 import Logotype from "../Logotype/Logotype.jsx";
-import icons from "../../assets/img/icons.svg";
+// import icons from "../../assets/img/icons.svg";
+import { FiLogIn } from "react-icons/fi";
 import { useState } from "react";
 
 const Navigation = () => {
@@ -30,9 +31,11 @@ const Navigation = () => {
         </div>
         <div className={style.wrapper}>
           <div className={style.ukraine}>
-            <svg className={style.icon}>
+            {/* <svg className={style.icon}>
               <use href={`${icons}#icon-login`}></use>
-            </svg>
+            </svg> */}
+            <FiLogIn size={20} color={"#F4C550"} />
+
             <button type="button" className={style.login}>
               Log in
             </button>
