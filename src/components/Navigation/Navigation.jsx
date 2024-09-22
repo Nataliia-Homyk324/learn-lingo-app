@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import style from "./Navigation.module.css";
 import clsx from "clsx";
 import Logotype from "../Logotype/Logotype.jsx";
-import icons from "../../assets/icons/icons.svg";
+import icons from "../../../public/icons.svg";
 import { useState } from "react";
 
 const Navigation = () => {
