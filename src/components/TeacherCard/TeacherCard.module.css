@@ -1,12 +1,13 @@
 .teacherCard {
     display: flex;
     align-items: flex-start;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    border-radius: 24px;
+    padding: 24px;
+    max-width: 1184px;
+    border: none;
+    background: #fff;
+    margin: 32px auto;
+    gap:48px;   
 }
 
 .teacherAvatar {
@@ -14,24 +15,95 @@
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 16px;
+    padding: 10px;
+    border: 2px solid #f4c550;
+
+}
+
+.levelsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+   
+}
+
+.levelItem {
+    padding: 8px 12px;
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    border-radius: 35px;
+}
+
+.firstLevelItem {
+    background-color: #f4c550;
+    border: none;
 }
 
 .teacherInfo {
     display: flex;
     flex-direction: column;
+    gap: 32px;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
 }
 
-.teacherInfo h2 {
-    margin: 0 0 8px 0;
-    font-size: 24px;
+.title{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.titleList{
+    display: flex;
+    gap:16px;
+    align-items: center;
+}
+.titleListItem{
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: #121417;
+}
+.price{
+    color: #38cd3e;
+}
+.heartIcon{
+    width: 26px;
+    height: 26px;
+}
+.button{
+    font-family: inherit;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        color: #121417;
+        border: none;
+        background-color: #fff;
 }
 
-.teacherInfo p {
-    margin: 4px 0;
-    font-size: 16px;
+.conditions{
+    display:flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+   
+    
 }
 
-.teacherInfo strong {
-    font-weight: bold;
+.titleConditions{
+    /* font-weight: 500;
+        font-size: 16px;
+        line-height: 150%; */
+        color: #8a8a89;
+        
 }
+.languages{
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
+

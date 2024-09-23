@@ -28,13 +28,11 @@ const UploadTeachers = () => {
         await set(teacherRef, teacher);
       }
 
-      console.log("Дані викладачів успішно завантажено!");
+      console.log("Teacher data has been successfully uploaded!");
     };
 
     uploadTeachers().catch(console.error);
   }, []);
-
-  // return <div></div>;
 };
 
 export default UploadTeachers;
