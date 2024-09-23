@@ -7,7 +7,16 @@
     border: none;
     background: #fff;
     margin: 32px auto;
-    gap:48px;   
+    gap:48px; 
+    position: relative;
+}
+
+.heartContainer {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+   
+   
 }
 
 .teacherAvatar {
@@ -71,6 +80,7 @@
 .heartIcon{
     width: 26px;
     height: 26px;
+    cursor: pointer;
 }
 .button{
     font-family: inherit;
@@ -82,6 +92,7 @@
         color: #121417;
         border: none;
         background-color: #fff;
+        
 }
 
 .conditions{

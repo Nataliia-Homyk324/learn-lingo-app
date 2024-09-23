@@ -37,7 +37,9 @@ const TeacherCard = ({ teacher }) => {
               <span className={style.price}>{teacher.price_per_hour}</span>
             </p>
           </div>
-          <FaRegHeart className={style.heartIcon} />
+          <div className={style.heartContainer}>
+            <FaRegHeart className={style.heartIcon} />
+          </div>
         </div>
 
         {/* <p>
