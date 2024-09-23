@@ -1,6 +1,7 @@
 import style from "./HomePage.module.css";
 import block from "../../assets/img/block.png";
 import { Link } from "react-router-dom";
+
 function HomePage() {
   return (
     <div className={style.container}>

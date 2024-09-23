@@ -61,10 +61,13 @@ const TeacherCard = ({ teacher }) => {
             <span className={style.titleConditions}>Conditions: </span>
             {teacher.conditions}
           </p>
-
-          <Link to="/teachers/{teacher.id}" className={style.button}>
+          <Link to={`/teachers/${teacher.id}`} className={style.button}>
             Read more
           </Link>
+
+          {/* <Link to="/teachers/{teacher.id}" className={style.button}>
+            Read more
+          </Link> */}
         </div>
 
         <div className={style.levelsList}>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, push } from "firebase/database";
 import teachersData from "./teachers.json";
 import { initializeApp } from "firebase/app";
 
@@ -21,11 +21,11 @@ const UploadTeachers = () => {
   useEffect(() => {
     const uploadTeachers = async () => {
       for (const teacher of teachersData) {
-        const teacherRef = ref(
-          database,
-          `teachers/${teacher.name}_${teacher.surname}`
-        );
-        await set(teacherRef, teacher);
+        const teacherRef = push(ref(database, "teachers")); // Automatically generate a unique key
+        await set(teacherRef, {
+          ...teacher, // Spread the existing teacher data
+          id: teacherRef.key, // Assign the unique key as the ID
+        });
       }
 
       console.log("Teacher data has been successfully uploaded!");
@@ -33,6 +33,8 @@ const UploadTeachers = () => {
 
     uploadTeachers().catch(console.error);
   }, []);
+
+  return null; // Return null or a suitable JSX element
 };
 
 export default UploadTeachers;
