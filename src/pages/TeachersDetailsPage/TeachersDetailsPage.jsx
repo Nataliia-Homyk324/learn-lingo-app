@@ -1,34 +1,9 @@
-// import style from "./TeachersDetailsPage.module.css";
-
-// function TeachersDetailsPage() {
-//   return (
-//     <div className={style.container}>
-//       <h1>TeachersDetailsPage</h1>
-//     </div>
-//   );
-// }
-
-// export default TeachersDetailsPage;
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
 import Loader from "../../components/Loader/Loader.jsx";
+import { app } from "../../../firebase.js";
 
-// Конфігурація Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyA922kqfLqMvV9qRHPOrUV6GB3pbOzzfwU",
-  authDomain: "learn-lingo-app-c6e98.firebaseapp.com",
-  projectId: "learn-lingo-app-c6e98",
-  storageBucket: "learn-lingo-app-c6e98.appspot.com",
-  messagingSenderId: "845404324064",
-  appId: "1:845404324064:web:bb129a90832ae2d71e5085",
-  measurementId: "G-69SH91VWGW",
-  databaseURL: "https://learn-lingo-app-c6e98-default-rtdb.firebaseio.com",
-};
-
-// Ініціалізація Firebase
-const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 const TeachersDetailsPage = () => {

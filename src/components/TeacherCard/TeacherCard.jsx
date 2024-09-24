@@ -64,10 +64,6 @@ const TeacherCard = ({ teacher }) => {
           <Link to={`/teachers/${teacher.id}`} className={style.button}>
             Read more
           </Link>
-
-          {/* <Link to="/teachers/{teacher.id}" className={style.button}>
-            Read more
-          </Link> */}
         </div>
 
         <div className={style.levelsList}>

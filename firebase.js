@@ -1,22 +1,26 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from "firebase/app";
+
+const API_KEY = import.meta.env.VITE_API_KEY;
+const AUTH_DOMAIN = import.meta.env.VITE_AUTH_DOMAIN;
+const PROJECT_ID = import.meta.env.VITE_PROJECT_ID;
+const STORAGE_BUCKET = import.meta.env.VITE_STORAGE_BUCKET;
+const MESSAGING_SENDER_ID = import.meta.env.VITE_MESSAGING_SENDER_ID;
+const APP_ID = import.meta.env.VITE_APP_ID;
+const MEASUREMENT_ID = import.meta.env.VITE_MEASUREMENT_ID;
+const DATABASE_URL = import.meta.env.VITE_DATABASE_URL;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyA922kqfLqMvV9qRHPOrUV6GB3pbOzzfwU",
-  authDomain: "learn-lingo-app-c6e98.firebaseapp.com",
-  projectId: "learn-lingo-app-c6e98",
-  storageBucket: "learn-lingo-app-c6e98.appspot.com",
-  messagingSenderId: "845404324064",
-  appId: "1:845404324064:web:bb129a90832ae2d71e5085",
-  measurementId: "G-69SH91VWGW",
-  databaseURL: "https://learn-lingo-app-c6e98-default-rtdb.firebaseio.com"
+  
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
+  measurementId: MEASUREMENT_ID,
+  databaseURL: DATABASE_URL
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+ export const app = initializeApp(firebaseConfig);
