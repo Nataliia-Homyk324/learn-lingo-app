@@ -8,6 +8,7 @@ const database = getDatabase(app);
 
 const TeachersList = () => {
   const [teachers, setTeachers] = useState([]);
+  const [expandedTeacherId, setExpandedTeacherId] = useState(null);
 
   useEffect(() => {
     const fetchTeachers = async () => {
@@ -16,7 +17,6 @@ const TeachersList = () => {
 
       if (snapshot.exists()) {
         const data = snapshot.val();
-        // Convert the object into an array of teachers
         const teachersArray = Object.values(data);
         setTeachers(teachersArray);
       } else {
@@ -27,11 +27,20 @@ const TeachersList = () => {
     fetchTeachers().catch(console.error);
   }, []);
 
+  const handleReadMore = (id) => {
+    setExpandedTeacherId((prevId) => (prevId === id ? null : id)); // Встановлюємо ID для відображення деталей
+  };
+
   return (
     <div>
       {teachers.length > 0 ? (
         teachers.map((teacher) => (
-          <TeacherCard key={teacher.id} teacher={teacher} />
+          <TeacherCard
+            key={teacher.id}
+            teacher={teacher}
+            showDetails={expandedTeacherId === teacher.id} // Перевіряємо, чи ID вчителя збігається з активним
+            onReadMore={handleReadMore} // Передаємо функцію обробки
+          />
         ))
       ) : (
         <Loader />

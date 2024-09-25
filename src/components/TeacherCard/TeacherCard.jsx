@@ -1,9 +1,11 @@
 import style from "./TeacherCard.module.css";
-import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { IoBookOutline } from "react-icons/io5";
+import { Link, Outlet } from "react-router-dom";
+import { Suspense } from "react";
+import Loader from "../Loader/Loader.jsx";
 
-const TeacherCard = ({ teacher }) => {
+const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
   return (
     <div className={style.teacherCard}>
       <img
@@ -41,11 +43,6 @@ const TeacherCard = ({ teacher }) => {
             <FaRegHeart className={style.heartIcon} />
           </div>
         </div>
-
-        {/* <p>
-            <span>Досвід: </span>
-            {teacher.experience} 
-          </p> */}
         <div className={style.conditions}>
           <p>
             <span className={style.titleConditions}>Speaks: </span>
@@ -61,11 +58,24 @@ const TeacherCard = ({ teacher }) => {
             <span className={style.titleConditions}>Conditions: </span>
             {teacher.conditions}
           </p>
-          <Link to={`/teachers/${teacher.id}`} className={style.button}>
-            Read more
-          </Link>
-        </div>
 
+          {!showDetails && (
+            <Link
+              to="details"
+              className={style.link}
+              state={{ teacher }}
+              onClick={() => onReadMore(teacher.id)}
+            >
+              Read more
+            </Link>
+          )}
+
+          {showDetails && (
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          )}
+        </div>
         <div className={style.levelsList}>
           {teacher.levels.map((level, index) => (
             <div
@@ -78,6 +88,9 @@ const TeacherCard = ({ teacher }) => {
             </div>
           ))}
         </div>
+        {showDetails && (
+          <button className={style.button}>Book trial lesson</button>
+        )}
       </div>
     </div>
   );

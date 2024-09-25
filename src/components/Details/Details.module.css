@@ -1,0 +1,30 @@
+.review {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 32px;
+    
+   
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+   
+}
+.reviewAvatar{
+    display: flex;
+    gap: 8px;
+}
+.name{
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: #8a8a89;
+}
+.rating{
+    display: flex;
+    flex-direction: column;
+}
