@@ -78,7 +78,13 @@ const TeachersList = ({ selectedLanguage, selectedLevel, selectedPrice }) => {
 
   return (
     <div>
-      {filteredTeachers.length > 0 ? (
+      {loading ? (
+        <Loader />
+      ) : filteredTeachers.length === 0 ? (
+        <div className={style.text}>
+          No teachers match your filter criteria. Please adjust your filters.
+        </div>
+      ) : (
         <>
           {filteredTeachers.map((teacher) => (
             <TeacherCard
@@ -101,8 +107,6 @@ const TeachersList = ({ selectedLanguage, selectedLevel, selectedPrice }) => {
             </div>
           )}
         </>
-      ) : (
-        <Loader />
       )}
     </div>
   );

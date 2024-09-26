@@ -25,3 +25,11 @@
     margin-top: 32px;
     margin-bottom: 32px;
 }
+.text {
+    margin-top: 32px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 111%;
+    color: #121417;
+}

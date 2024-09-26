@@ -26,9 +26,15 @@ function TeachersPage() {
             <option value="English" className={style.option}>
               English
             </option>
+            <option value="German" className={style.option}>
+              German
+            </option>
 
             <option value="Spanish" className={style.option}>
               Spanish
+            </option>
+            <option value="Ukrainian" className={style.option}>
+              Ukrainian
             </option>
           </select>
         </div>
