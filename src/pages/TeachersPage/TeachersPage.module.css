@@ -2,3 +2,62 @@
     padding: 20px 64px;
     background-color:rgb(236, 242, 248);
 }
+
+.filters{
+display: flex;
+gap: 20px;
+justify-content: start;
+margin-left: 108px;
+}
+
+.label{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 111%;
+    color: #8a8a89;
+}
+
+.selector{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.selectLanguage{
+border-radius: 14px;
+border: none;
+    padding: 14px 18px 14px 18px;
+    width: 221px;
+    height: 48px;
+    background: #fff;
+    font-weight: 500;
+        font-size: 18px;
+        line-height: 111%;
+        color: #121417;
+}
+.selectLevel{
+    border-radius: 14px;
+        padding: 14px 18px 14px 18px;
+        width: 198px;
+        height: 48px;
+        background: #fff;
+        font-weight: 500;
+            font-size: 18px;
+            line-height: 111%;
+            color: #121417;
+            border: none;
+}
+.selectPrice{
+    border-radius: 14px;
+        padding: 14px 18px;
+        width: 124px;
+        height: 48px;
+        background: #fff;
+        font-weight: 500;
+            font-size: 18px;
+            line-height: 111%;
+            color: #121417;
+            border: none;
+}
+.option{
+    color: rgba(18, 20, 23, 0.2);
+}

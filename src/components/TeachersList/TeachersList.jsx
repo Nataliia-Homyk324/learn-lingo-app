@@ -8,12 +8,13 @@ import style from "./TeachersList.module.css";
 const database = getDatabase(app);
 const ITEMS_PER_PAGE = 4;
 
-const TeachersList = () => {
+const TeachersList = ({ selectedLanguage, selectedLevel, selectedPrice }) => {
   const [teachers, setTeachers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [expandedTeacherId, setExpandedTeacherId] = useState(null);
+  const [filteredTeachers, setFilteredTeachers] = useState([]);
 
   const fetchTeachers = async (page) => {
     setLoading(true);
@@ -44,6 +45,27 @@ const TeachersList = () => {
     fetchTeachers(currentPage).catch(console.error);
   }, [currentPage]);
 
+  useEffect(() => {
+    const filtered = teachers.filter((teacher) => {
+      const matchesLanguage =
+        selectedLanguage === "" ||
+        teacher.languages.some((language) =>
+          language.toLowerCase().includes(selectedLanguage.toLowerCase())
+        );
+      const matchesLevel =
+        selectedLevel === "" ||
+        teacher.levels.some(
+          (level) => level.toLowerCase() === selectedLevel.toLowerCase()
+        );
+      const matchesPrice =
+        selectedPrice === "" || teacher.price_per_hour <= Number(selectedPrice);
+
+      return matchesLanguage && matchesLevel && matchesPrice;
+    });
+
+    setFilteredTeachers(filtered);
+  }, [teachers, selectedLanguage, selectedLevel, selectedPrice]);
+
   const loadMoreTeachers = () => {
     if (hasMore) {
       setCurrentPage((prevPage) => prevPage + 1);
@@ -56,9 +78,9 @@ const TeachersList = () => {
 
   return (
     <div>
-      {teachers.length > 0 ? (
+      {filteredTeachers.length > 0 ? (
         <>
-          {teachers.map((teacher) => (
+          {filteredTeachers.map((teacher) => (
             <TeacherCard
               key={teacher.id}
               teacher={teacher}
