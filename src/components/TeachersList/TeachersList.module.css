@@ -1,0 +1,27 @@
+.button {
+    border-radius: 12px;
+    padding: 16px 88px;
+    width: 267px;
+    height: 60px;
+    background: #f4c550;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #121417;
+    
+}
+
+.button:hover,
+.button:focus {
+    background-color: #fadf9c;
+
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
