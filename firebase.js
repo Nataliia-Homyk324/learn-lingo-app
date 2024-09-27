@@ -22,7 +22,7 @@ const firebaseConfig = {
   measurementId: MEASUREMENT_ID,
   databaseURL: DATABASE_URL
 };
-console.log("Environment Variables: ", import.meta.env);
+
 
 export const app = initializeApp(firebaseConfig);
  export const auth = getAuth(app);
