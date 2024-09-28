@@ -7,7 +7,7 @@
     border: none;
     background: #fff;
     margin: 32px auto;
-    gap:48px; 
+    gap: 48px;
     position: relative;
 }
 
@@ -18,8 +18,8 @@
     border: none;
     background-color: inherit;
     cursor: pointer;
-   
-   
+
+
 }
 
 .teacherAvatar {
@@ -36,7 +36,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-   
+
 }
 
 .levelItem {
@@ -55,32 +55,37 @@
     flex-direction: column;
     gap: 32px;
 }
-.info{
+
+.info {
     display: flex;
     justify-content: space-between;
     align-items: start;
 }
 
-.title{
+.title {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
-.titleList{
+
+.titleList {
     display: flex;
-    gap:16px;
+    gap: 16px;
     align-items: center;
 }
-.titleListItem{
+
+.titleListItem {
     font-weight: 500;
-        font-size: 16px;
-        line-height: 150%;
-        color: #121417;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
 }
-.price{
+
+.price {
     color: #38cd3e;
 }
-.heartIcon{
+
+.heartIcon {
     width: 26px;
     height: 26px;
     cursor: pointer;
@@ -92,51 +97,54 @@
     cursor: pointer;
     fill: #f4c550;
 }
-.link{
+
+.link {
     font-family: inherit;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 150%;
-        text-decoration: underline;
-        text-decoration-skip-ink: none;
-        color: #121417;
-        border: none;
-        background-color: #fff;
-        
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #121417;
+    border: none;
+    background-color: #fff;
+
 }
 
-.conditions{
-    display:flex;
+.conditions {
+    display: flex;
     flex-direction: column;
     gap: 16px;
     font-weight: 500;
-        font-size: 16px;
-        line-height: 150%;
-   
-    
+    font-size: 16px;
+    line-height: 150%;
+
+
 }
 
-.titleConditions{
+.titleConditions {
     color: #8a8a89;
-        
+
 }
-.languages{
+
+.languages {
     text-decoration: underline;
     text-decoration-skip-ink: none;
 }
-.button{
+
+.button {
     border-radius: 12px;
-        padding: 16px 48px;
-        width: 232px;
-        height: 60px;
-        background: #f4c550;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 156%;
-        color: #121417;
-        border: none;
-        cursor: pointer;
-        
+    padding: 16px 48px;
+    width: 232px;
+    height: 60px;
+    background: #f4c550;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #121417;
+    border: none;
+    cursor: pointer;
+
 }
 
 .button:hover,

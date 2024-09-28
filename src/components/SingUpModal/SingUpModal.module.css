@@ -14,9 +14,7 @@
 .modalContainer {
     position: relative;
     width: 566px;
-    height: 600px;
     padding: 64px;
-    padding-bottom: 100px;
     background-color: #fff;
     border-radius: 30px;
     box-sizing: border-box;

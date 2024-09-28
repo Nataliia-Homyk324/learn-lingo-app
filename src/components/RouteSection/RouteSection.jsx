@@ -23,8 +23,9 @@ const RouteSection = () => {
         <Route path="/teachers" element={<TeachersPage />}>
           <Route path="details" element={<Details />} />
         </Route>
-
-        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/favorites" element={<FavoritesPage />}>
+          <Route path="details" element={<Details />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

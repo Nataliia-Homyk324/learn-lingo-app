@@ -2,3 +2,13 @@
     padding: 20px 64px;
     background: rgb(236, 242, 248);
 }
+
+title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.noFavorites {
+    font-size: 1.5rem;
+    color: #888;
+}

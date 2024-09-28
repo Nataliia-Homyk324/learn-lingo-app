@@ -1,11 +1,60 @@
 import style from "./TeacherCard.module.css";
-import { FaRegHeart } from "react-icons/fa";
+import { useState, useEffect } from "react";
 import { IoBookOutline } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import Loader from "../Loader/Loader.jsx";
+import { GoHeartFill } from "react-icons/go";
+import { GoHeart } from "react-icons/go";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../../firebase";
+import { toast } from "react-toastify"; // бібліотека для тостів
+import "react-toastify/dist/ReactToastify.css";
 
 const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
+  const [isVisibleHeart, setVisibleHeart] = useState(false); // стан для сердечка
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Перевірка чи картка вже є у списку обраних у localStorage
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const isFavorite = favorites.some(
+      (favTeacher) => favTeacher.id === teacher.id
+    );
+    setVisibleHeart(isFavorite);
+
+    // Перевірка авторизації користувача
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, [teacher.id]);
+
+  const handleClickButtonHeart = () => {
+    if (!user) {
+      // Якщо користувач не авторизований, показуємо тост
+      toast.error("This action is available for authorized users only.");
+      return;
+    }
+
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    if (isVisibleHeart) {
+      // Видаляємо картку зі списку обраних
+      const updatedFavorites = favorites.filter(
+        (favTeacher) => favTeacher.id !== teacher.id
+      );
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      setVisibleHeart(false);
+    } else {
+      // Додаємо картку до списку обраних
+      favorites.push(teacher);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      setVisibleHeart(true);
+    }
+  };
+
   return (
     <div className={style.teacherCard}>
       <img
@@ -39,9 +88,16 @@ const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
               <span className={style.price}>{teacher.price_per_hour}</span>
             </p>
           </div>
-          <div className={style.heartContainer}>
-            <FaRegHeart className={style.heartIcon} />
-          </div>
+          <button
+            className={style.heartContainer}
+            onClick={handleClickButtonHeart}
+          >
+            {isVisibleHeart ? (
+              <GoHeartFill className={style.heartFillIcon} />
+            ) : (
+              <GoHeart className={style.heartIcon} />
+            )}
+          </button>
         </div>
         <div className={style.conditions}>
           <p>
