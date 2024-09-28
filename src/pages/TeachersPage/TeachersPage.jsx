@@ -1,11 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./TeachersPage.module.css";
 import TeachersList from "../../components/TeachersList/TeachersList.jsx";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../../firebase";
 
 function TeachersPage() {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        localStorage.removeItem("favorites");
+        setIsLoggedIn(false);
+      } else {
+        setIsLoggedIn(true);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setSelectedLanguage("");
+      setSelectedLevel("");
+      setSelectedPrice("");
+    }
+  }, [isLoggedIn]);
 
   return (
     <div className={style.container}>
@@ -29,7 +53,6 @@ function TeachersPage() {
             <option value="German" className={style.option}>
               German
             </option>
-
             <option value="Spanish" className={style.option}>
               Spanish
             </option>
@@ -38,6 +61,7 @@ function TeachersPage() {
             </option>
           </select>
         </div>
+
         <div className={style.selector}>
           <label htmlFor="levelSelect" className={style.label}>
             Level of knowledge
@@ -92,4 +116,5 @@ function TeachersPage() {
     </div>
   );
 }
+
 export default TeachersPage;
