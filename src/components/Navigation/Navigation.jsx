@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import style from "./Navigation.module.css";
 import clsx from "clsx";
 import Logotype from "../Logotype/Logotype.jsx";
@@ -6,21 +6,23 @@ import { FiLogIn } from "react-icons/fi";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../../firebase"; // Імпорт автентифікації з Firebase
+import { auth } from "../../../firebase";
 import SingUpModal from "../SingUpModal/SingUpModal.jsx";
 import LogInModal from "../LogInModal/LogInModal.jsx";
 
 const Navigation = () => {
-  const [userLoggedIn, setUserLoggedIn] = useState(false); // Назва змінної тепер описує стан користувача
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setSignUpModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUserLoggedIn(true); // Користувач залогінений
+        setUserLoggedIn(true);
+        navigate("/teachers");
       } else {
-        setUserLoggedIn(false); // Користувач не залогінений
+        setUserLoggedIn(false);
       }
     });
 
