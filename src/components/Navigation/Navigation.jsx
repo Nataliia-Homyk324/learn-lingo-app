@@ -3,16 +3,33 @@ import style from "./Navigation.module.css";
 import clsx from "clsx";
 import Logotype from "../Logotype/Logotype.jsx";
 import { FiLogIn } from "react-icons/fi";
-import { useState } from "react";
-
+import { RiLogoutBoxLine } from "react-icons/ri";
+import { useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../../firebase"; // Імпорт автентифікації з Firebase
 import SingUpModal from "../SingUpModal/SingUpModal.jsx";
+import LogInModal from "../LogInModal/LogInModal.jsx";
 
 const Navigation = () => {
+  const [userLoggedIn, setUserLoggedIn] = useState(false); // Назва змінної тепер описує стан користувача
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [isSignUpModalOpen, setSignUpModalOpen] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserLoggedIn(true); // Користувач залогінений
+      } else {
+        setUserLoggedIn(false); // Користувач не залогінений
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const buildLinkClass = ({ isActive }) => {
     return clsx(style.navLink, isActive && style.navLinkActive);
   };
-  const [visible] = useState(false);
-  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <header className={style.container}>
@@ -25,34 +42,56 @@ const Navigation = () => {
           <NavLink className={buildLinkClass} to="/teachers">
             Teachers
           </NavLink>
-          {visible && (
+          {userLoggedIn && (
             <NavLink className={buildLinkClass} to="/favorites">
               Favorites
             </NavLink>
           )}
         </div>
         <div className={style.wrapper}>
-          <div className={style.ukraine}>
-            <FiLogIn size={20} color={"#F4C550"} />
-
-            <button type="button" className={style.login}>
-              Log in
-            </button>
-          </div>
-          <div>
-            <button
-              type="button"
-              onClick={() => setModalOpen(true)}
-              className={style.button}
-            >
-              Registration
-            </button>
-
-            <SingUpModal
-              isOpen={isModalOpen}
-              onClose={() => setModalOpen(false)}
-            />
-          </div>
+          {!userLoggedIn && (
+            <>
+              <div className={style.fiLogin}>
+                <FiLogIn size={20} color={"#F4C550"} />
+                <button
+                  type="button"
+                  className={style.login}
+                  onClick={() => setLoginModalOpen(true)}
+                >
+                  Log in
+                </button>
+                <LogInModal
+                  isOpen={isLoginModalOpen}
+                  onClose={() => setLoginModalOpen(false)}
+                />
+              </div>
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setSignUpModalOpen(true)}
+                  className={style.button}
+                >
+                  Registration
+                </button>
+                <SingUpModal
+                  isOpen={isSignUpModalOpen}
+                  onClose={() => setSignUpModalOpen(false)}
+                />
+              </div>
+            </>
+          )}
+          {userLoggedIn && (
+            <div className={style.fiLogin}>
+              <RiLogoutBoxLine size={20} color={"#F4C550"} />
+              <button
+                type="button"
+                className={style.login}
+                onClick={() => auth.signOut()}
+              >
+                Log out
+              </button>
+            </div>
+          )}
         </div>
       </nav>
     </header>
