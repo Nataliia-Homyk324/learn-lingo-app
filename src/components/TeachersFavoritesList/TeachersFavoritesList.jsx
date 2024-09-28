@@ -9,12 +9,16 @@ const TeachersFavoritesList = () => {
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
-    const favorites = localStorage.getItem("favorites");
-    if (favorites) {
-      setTeachers(JSON.parse(favorites));
-    }
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setTeachers(favorites);
     setLoading(false);
   }, []);
+
+  const handleToggleFavorite = (id) => {
+    const updatedTeachers = teachers.filter((teacher) => teacher.id !== id);
+    setTeachers(updatedTeachers);
+    localStorage.setItem("favorites", JSON.stringify(updatedTeachers));
+  };
 
   const handleReadMore = (id) => {
     setExpandedTeacherId((prevId) => (prevId === id ? null : id));
@@ -34,6 +38,7 @@ const TeachersFavoritesList = () => {
             <TeachersFavoritesCard
               key={teacher.id}
               teacher={teacher}
+              onToggleFavorite={handleToggleFavorite}
               showDetails={expandedTeacherId === teacher.id}
               onReadMore={handleReadMore}
             />

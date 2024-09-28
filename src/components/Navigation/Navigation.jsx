@@ -23,6 +23,7 @@ const Navigation = () => {
         navigate("/teachers");
       } else {
         setUserLoggedIn(false);
+        navigate("/");
       }
     });
 

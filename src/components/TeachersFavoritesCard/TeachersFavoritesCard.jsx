@@ -5,7 +5,16 @@ import { Suspense } from "react";
 import Loader from "../Loader/Loader.jsx";
 import { GoHeartFill } from "react-icons/go";
 
-const TeachersFavoritesCard = ({ teacher, showDetails, onReadMore }) => {
+const TeachersFavoritesCard = ({
+  teacher,
+  showDetails,
+  onToggleFavorite,
+  onReadMore,
+}) => {
+  const handleClickButtonHeart = () => {
+    onToggleFavorite(teacher.id);
+  };
+
   return (
     <div>
       <div className={style.teacherCard}>
@@ -40,9 +49,12 @@ const TeachersFavoritesCard = ({ teacher, showDetails, onReadMore }) => {
                 <span className={style.price}>{teacher.price_per_hour}</span>
               </p>
             </div>
-            <div className={style.heartContainer}>
+            <button
+              className={style.heartContainer}
+              onClick={handleClickButtonHeart}
+            >
               <GoHeartFill className={style.heartFillIcon} />
-            </div>
+            </button>
           </div>
           <div className={style.conditions}>
             <p>
