@@ -20,15 +20,9 @@ function HomePage() {
             Get started
           </Link>
         </div>
-        <div
-          className={style.imgBlock}
-          style={{
-            backgroundImage: `url(${block})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        ></div>
+        <div className={style.imgBlock}>
+          <img src={block} alt="Image" />
+        </div>
       </div>
 
       <ul className={style.listAdvantages}>
@@ -38,7 +32,10 @@ function HomePage() {
         </li>
         <li className={style.advantage}>
           <div className={style.number}>300,000 +</div>
-          <div className={style.item}>5-star tutor reviews</div>
+          <div className={style.item}>
+            <div className={style.itemWrap}>5-star tutor</div>
+            reviews
+          </div>
         </li>
         <li className={style.advantage}>
           <div className={style.number}>120 +</div>

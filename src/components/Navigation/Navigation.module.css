@@ -1,34 +1,38 @@
 .container {
     width: 100%;
-    padding: 24px 128px;
+    padding: 16px;
+   
     background-color: #fff;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+  
     align-items: center;
-    
+    box-sizing: border-box;
 }
 
 .headerNav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     align-items: center;
 }
 
 .menu {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 32px;
-    flex-grow: 1;
-
+    gap: 16px;
+   
 }
 
 .navLink {
     text-decoration: none;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 14px;
+    
     font-style: normal;
     font-weight: 500;
     color: #101828;
@@ -45,46 +49,124 @@
     color: #f4c550;
 }
 
-.button{
+.button {
     border-radius: 12px;
-        padding: 14px 39px;
-        width: 166px;
-        height: 48px;
-        background: #121417;
-        color: #FFF;
-        border: none;
-        margin-right: 32px;
+    padding: 12px 20px;
+   
+    width: 100%;
+   
+    background: #121417;
+    color: #FFF;
+    border: none;
+    margin-top: 16px;
+   
 }
-.button:hover,
-.button:focus{
-    background-color: gray;
 
+.button:hover,
+.button:focus {
+    background-color: gray;
 }
-.login{
+
+.login {
     font-weight: 700;
-        font-size: 16px;
-        line-height: 125%;
-        color: #121417;
-        border: none;
+    font-size: 14px;
+    
+    line-height: 125%;
+    color: #121417;
+    border: none;
 }
 
 .login:hover,
 .login:focus {
     color: #f4c550;
 }
-.icon{
-    width: 20px;
-    height: 20px;
+
+.icon {
+    width: 16px;
+    height: 16px;
+   
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-right: 64px;
 }
-.fiLogin{
+.fiLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+
+@media (min-width: 768px) {
+    .container {
+        padding: 24px 48px;
+        flex-direction: row;
+      
+        justify-content: space-between;
+    }
+.headerNav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 32px;
+    flex-grow: 1;
+    flex-direction: row;
+
+}
+   
+
+    
+
+    .button {
+        width: auto;
+        
+        margin-top: 0;
+    }
+
+    .navLink {
+        font-size: 16px;
+       
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .container {
+        padding: 24px 128px;
+    }
+
+    .menu {
+        gap: 32px;
+       
+    }
+
+    .button {
+        padding: 14px 39px;
+        
+        width: 166px;
+        height: 48px;
+    }
+
+    .wrapper {
+        margin-right: 64px;
+        gap: 16px;
+
+       
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+      
+    }
 }
