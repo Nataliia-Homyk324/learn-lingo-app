@@ -1,9 +1,12 @@
 import style from "./TeachersFavoritesCard.module.css";
+import { useState } from "react";
 import { IoBookOutline } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import Loader from "../Loader/Loader.jsx";
 import { GoHeartFill } from "react-icons/go";
+import "react-toastify/dist/ReactToastify.css";
+import BookModal from "../BookModal/BookModal.jsx";
 
 const TeachersFavoritesCard = ({
   teacher,
@@ -11,10 +14,14 @@ const TeachersFavoritesCard = ({
   onToggleFavorite,
   onReadMore,
 }) => {
+  const [isBookModalOpen, setBookModalOpen] = useState(false);
+
   const handleClickButtonHeart = () => {
     onToggleFavorite(teacher.id);
   };
-
+  const handleBookLesson = () => {
+    setBookModalOpen(true);
+  };
   return (
     <div>
       <div className={style.teacherCard}>
@@ -102,7 +109,18 @@ const TeachersFavoritesCard = ({
             ))}
           </div>
           {showDetails && (
-            <button className={style.button}>Book trial lesson</button>
+            <div>
+              <button className={style.button} onClick={handleBookLesson}>
+                Book trial lesson
+              </button>
+              {isBookModalOpen && (
+                <BookModal
+                  isOpen={isBookModalOpen}
+                  onClose={() => setBookModalOpen(false)}
+                  teacher={teacher}
+                />
+              )}
+            </div>
           )}
         </div>
       </div>
