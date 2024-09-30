@@ -1,4 +1,4 @@
-.backdrop {
+/* .backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -125,4 +125,183 @@
 .loginBtn:hover,
 .loginBtn:focus {
     background-color: #ffdc86;
+} */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modalContainer {
+    position: relative;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-sizing: border-box;
+
+}
+
+.closeButton {
+    position: absolute;
+    padding: 0;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #121417;
+    transition: color 0.35s ease;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+    color: #f4c550;
+}
+
+.loginForm {
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.wrapperInput {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.text {
+    color: #121417;
+    opacity: 0.8;
+    font-size: 12px;
+}
+
+.inputContainer {
+    width: 100%;
+    position: relative;
+}
+
+
+
+.eyeIcon {
+    position: absolute;
+    right: 17px;
+    top: 53%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: color 0.35s ease;
+    border: none;
+    background: inherit;
+}
+
+.input {
+    font-size: 16px;
+    color: #121417;
+    width: 100%;
+    height: 54px;
+    border: 1px solid rgba(22, 19, 19, 0.1);
+    border-radius: 12px;
+    padding: 16px 50px 16px 18px;
+    box-sizing: border-box;
+    outline: none;
+    background: inherit;
+}
+
+.loginBtn {
+    width: 100%;
+    height: 60px;
+    padding: 16px 100px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f4c550;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+.loginBtn:hover,
+.loginBtn:focus {
+    background-color: #ffdc86;
+}
+
+@media (min-width: 375px) {
+    .modalContainer {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .input {
+        height: 44px;
+        padding: 14px 40px 14px 16px;
+    }
+
+    .loginBtn {
+        height: 48px;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 561px) {
+    .modalContainer {
+        max-width: 566px;
+        padding: 64px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .text {
+        font-size: 16px;
+    }
+
+    .input {
+        height: 54px;
+        padding: 16px 50px 16px 18px;
+    }
+
+    .eyeIcon {
+        right: 17px;
+    }
+
+    .loginBtn {
+        height: 60px;
+        padding: 16px 185px;
+        font-size: 18px;
+    }
 }

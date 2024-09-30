@@ -13,10 +13,10 @@
 
 .modalContainer {
     position: relative;
-    width: 566px;
-    padding: 64px;
+    max-width: 100%;
+    padding: 20px;
     background-color: #fff;
-    border-radius: 30px;
+    border-radius: 16px;
     box-sizing: border-box;
 
 }
@@ -55,21 +55,23 @@
     align-items: flex-start;
     justify-content: center;
 }
-.wrapperInput{
+
+.wrapperInput {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
 }
+
 .title {
-    font-size: 40px;
+    font-size: 22px;
     font-weight: 500;
 }
 
 .text {
     color: #121417;
     opacity: 0.8;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .inputContainer {
@@ -106,7 +108,7 @@
 .loginBtn {
     width: 100%;
     height: 60px;
-    padding: 16px 185px;
+    padding: 16px 100px;
     border: none;
     border-radius: 12px;
     background-color: #f4c550;
@@ -119,4 +121,56 @@
 .loginBtn:hover,
 .loginBtn:focus {
     background-color: #ffdc86;
+}
+@media (min-width: 375px) {
+    .modalContainer {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .input {
+        height: 44px;
+        padding: 14px 40px 14px 16px;
+    }
+
+    .loginBtn {
+        height: 48px;
+        font-size: 15px;
+    }
+}
+@media (min-width: 561px) {
+    .modalContainer {
+        max-width: 566px;
+        padding: 64px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .text {
+        font-size: 16px;
+    }
+
+    .input {
+        height: 54px;
+        padding: 16px 50px 16px 18px;
+    }
+
+    .eyeIcon {
+        right: 17px;
+    }
+
+    .loginBtn {
+        height: 60px;
+        padding: 16px 185px;
+        font-size: 18px;
+    }
 }

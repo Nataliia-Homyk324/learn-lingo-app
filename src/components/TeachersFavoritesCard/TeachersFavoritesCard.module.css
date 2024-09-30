@@ -1,47 +1,36 @@
+
 .teacherCard {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     border-radius: 24px;
-    padding: 24px;
-    padding-right: 32px;
-    max-width: 1184px;
+    padding: 16px;
+    max-width: 100%;
     border: none;
     background: #fff;
-    margin: 32px auto;
-    gap: 48px;
+    margin: 16px auto;
+    gap: 16px;
     position: relative;
 }
 
-.heartContainer {
-    position: absolute;
-    top: 22px;
-    right: 24px;
-    border: none;
-    background-color: inherit;
-    cursor: pointer;
-
-
-}
-
 .teacherAvatar {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    padding: 10px;
+    padding: 6px;
     border: 2px solid #f4c550;
-
 }
 
 .levelsList {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-
+    gap: 8px;
 }
 
 .levelItem {
-    padding: 8px 12px;
+    width: auto;
+    padding: 4px 8px;
     border: 1px solid rgba(18, 20, 23, 0.2);
     border-radius: 35px;
 }
@@ -54,49 +43,61 @@
 .teacherInfo {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    text-align: left;
+}
+
+.teacherInfo {
     gap: 32px;
 }
 
 .info {
     display: flex;
-    justify-content: space-between;
-    align-items: start;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .titleList {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 8px;
     align-items: center;
 }
-
 .titleListItem {
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
     color: #121417;
 }
-
 .price {
     color: #38cd3e;
 }
-
 .heartIcon {
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
 
 .heartFillIcon {
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
     fill: #f4c550;
+}
+.heartContainer {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
 }
 
 .link {
@@ -135,12 +136,12 @@
 
 .button {
     border-radius: 12px;
-    padding: 16px 48px;
-    width: 232px;
-    height: 60px;
+    padding: 12px;
+    width: 100%;
+    height: 48px;
     background: #f4c550;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 156%;
     color: #121417;
     border: none;
@@ -148,8 +149,162 @@
 
 }
 
+
+
 .button:hover,
 .button:focus {
     background-color: #fadf9c;
+}
+
+
+
+@media (min-width: 768px) {
+    
+    
+    .teacherCard {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 38px;
+        max-width: 1184px;
+        gap: 48px;
+    }
+
+    .teacherAvatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .info {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+   
+
+
+    .button {
+        width: 232px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 1224px) {
+
+
+   
+         .teacherCard {
+           
+            align-items: flex-start;
+           
+            padding: 24px;
+            padding-right: 32px;
+            max-width: 1184px;
+           
+            margin: 32px auto;
+            gap: 48px;
+           
+        } 
+
+    .heartContainer {
+                   
+         top: 22px;
+         right: 24px;
+    }
+
+.title {
+    
+    gap: 16px;
+}
+.titleList {
+   
+    gap: 16px;
+    align-items: center;
+}
+
+
+.heartIcon {
+    width: 26px;
+    height: 26px;
+  
+}
+    .teacherAvatar {
+        width: 120px;
+        height: 120px;
+    }
+    .levelsList {
+           gap: 12px;
+    
+    }
+    .levelItem {
+        padding: 8px 12px;
+    }
+.heartFillIcon {
+    width: 28px;
+    height: 28px;
+    
+}
+    .info {
+        flex-direction: row;
+        justify-content: start;
+        
+    
+    }
+.teacherInfo {
+    
+    width: 968px;
+    padding-right: 80px;
+   
+}
+   .button {
+       
+       padding: 16px 48px;
+       width: 232px;
+       height: 60px;
+       font-size: 18px;
+       
+
+   }
+    
+
+.titleList {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+} 
+
+.teacherInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.titleList{
+    display: flex;
+    gap:16px;
+    align-items: center;
+}
+.levelItem {
+    padding: 8px 12px;
+   width: auto;
+}
+.titleListItem{
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: #121417;
+}
+
+
 
 }
