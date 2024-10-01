@@ -1,9 +1,8 @@
 import style from "./TeachersFavoritesCard.module.css";
 import { useState } from "react";
 import { IoBookOutline } from "react-icons/io5";
-import { Link, Outlet } from "react-router-dom";
-import { Suspense } from "react";
-import Loader from "../Loader/Loader.jsx";
+import { Link } from "react-router-dom";
+import Details from "../Details/Details.jsx";
 import { GoHeartFill } from "react-icons/go";
 import "react-toastify/dist/ReactToastify.css";
 import BookModal from "../BookModal/BookModal.jsx";
@@ -81,7 +80,6 @@ const TeachersFavoritesCard = ({
 
             {!showDetails && (
               <Link
-                to="details"
                 className={style.link}
                 state={{ teacher }}
                 onClick={() => onReadMore(teacher.id)}
@@ -90,11 +88,7 @@ const TeachersFavoritesCard = ({
               </Link>
             )}
 
-            {showDetails && (
-              <Suspense fallback={<Loader />}>
-                <Outlet />
-              </Suspense>
-            )}
+            {showDetails && <Details />}
           </div>
           <div className={style.levelsList}>
             {teacher.levels.map((level, index) => (

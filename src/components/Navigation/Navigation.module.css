@@ -33,7 +33,7 @@
     text-decoration: none;
     font-family: inherit;
     font-size: 14px;
-    
+    cursor: pointer;
     font-style: normal;
     font-weight: 500;
     color: #101828;
@@ -55,7 +55,7 @@
     padding: 12px 20px;
    
     width: 100%;
-   
+    cursor: pointer;
     background: #121417;
     color: #FFF;
     border: none;
@@ -71,7 +71,7 @@
 .login {
     font-weight: 700;
     font-size: 14px;
-    
+    cursor: pointer;
     line-height: 125%;
     color: #121417;
     border: none;

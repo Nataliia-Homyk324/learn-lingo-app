@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Navigation.module.css";
 import clsx from "clsx";
 import Logotype from "../Logotype/Logotype.jsx";
@@ -14,16 +14,13 @@ const Navigation = () => {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setSignUpModalOpen] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserLoggedIn(true);
-        navigate("/teachers");
       } else {
         setUserLoggedIn(false);
-        navigate("/");
       }
     });
 

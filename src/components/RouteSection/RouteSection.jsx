@@ -13,19 +13,16 @@ const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const FavoritesPage = lazy(() =>
   import("../../pages/FavoritesPage/FavoritesPage.jsx")
 );
-const Details = lazy(() => import("../Details/Details.jsx"));
 
 const RouteSection = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/teachers" element={<TeachersPage />}>
-          <Route path="details" element={<Details />} />
-        </Route>
-        <Route path="/favorites" element={<FavoritesPage />}>
-          <Route path="details" element={<Details />} />
-        </Route>
+        <Route path="/teachers" element={<TeachersPage />} />
+
+        <Route path="/favorites" element={<FavoritesPage />} />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

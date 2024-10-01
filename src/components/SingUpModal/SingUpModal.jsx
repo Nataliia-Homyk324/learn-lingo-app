@@ -47,17 +47,12 @@ const SingUpModal = ({ isOpen, onClose }) => {
         displayName: data.name,
       });
 
-      console.log("User created with name:", data.name);
-      toast.success("Registration successful!");
+      toast.success("Registration successful!", data.name);
       onClose();
     } catch (error) {
-      console.error("Error code:", error.code);
-      console.error("Error message:", error.message);
-      toast.error("Registration failed. Please try again.");
+      toast.error("Registration failed. Please try again.", error.message);
     }
   };
-
-  //
 
   useEffect(() => {
     const handleKeyDown = (event) => {

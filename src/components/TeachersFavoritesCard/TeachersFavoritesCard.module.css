@@ -91,6 +91,9 @@
     cursor: pointer;
     fill: #f4c550;
 }
+.heartFillIcon:hover {
+    fill: #fadf9c;
+}
 .heartContainer {
     position: absolute;
     top: 12px;
@@ -112,7 +115,9 @@
     background-color: #fff;
 
 }
-
+.link:hover {
+    color: #f4c550;
+}
 .conditions {
     display: flex;
     flex-direction: column;

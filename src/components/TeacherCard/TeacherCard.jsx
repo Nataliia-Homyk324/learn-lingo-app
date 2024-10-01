@@ -1,9 +1,8 @@
 import style from "./TeacherCard.module.css";
 import { useState, useEffect } from "react";
 import { IoBookOutline } from "react-icons/io5";
-import { Link, Outlet } from "react-router-dom";
-import { Suspense } from "react";
-import Loader from "../Loader/Loader.jsx";
+import { Link } from "react-router-dom";
+
 import { GoHeartFill } from "react-icons/go";
 import { GoHeart } from "react-icons/go";
 import { onAuthStateChanged } from "firebase/auth";
@@ -11,6 +10,7 @@ import { auth } from "../../../firebase";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BookModal from "../BookModal/BookModal.jsx";
+import Details from "../Details/Details.jsx";
 
 const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
   const [isVisibleHeart, setVisibleHeart] = useState(false);
@@ -125,7 +125,6 @@ const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
 
           {!showDetails && (
             <Link
-              to="details"
               className={style.link}
               state={{ teacher }}
               onClick={() => onReadMore(teacher.id)}
@@ -134,11 +133,7 @@ const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
             </Link>
           )}
 
-          {showDetails && (
-            <Suspense fallback={<Loader />}>
-              <Outlet />
-            </Suspense>
-          )}
+          {showDetails && <Details />}
         </div>
         <div className={style.levelsList}>
           {teacher.levels.map((level, index) => (

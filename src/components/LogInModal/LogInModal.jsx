@@ -42,13 +42,10 @@ const LogInModal = ({ isOpen, onClose }) => {
         data.password
       );
 
-      console.log("User login successful!", userCredential.email);
-      toast.success("Login successful!");
+      toast.success("Login successful!", userCredential.email);
       onClose();
     } catch (error) {
-      console.error("Error code:", error.code);
-      console.error("Error message:", error.message);
-      toast.error("Login failed. Please try again.");
+      toast.error("Login failed. Please try again.", error.message);
     }
   };
 
