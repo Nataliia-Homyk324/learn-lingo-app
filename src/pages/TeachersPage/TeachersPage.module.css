@@ -38,7 +38,21 @@
     font-size: 18px;
     line-height: 111%;
     color: #121417;
+    cursor: pointer;
 }
+.selectLanguage:hover,
+.selectLevel:hover,
+.selectPrice:hover {
+    border: 2px #f4c550 solid;
+    
+}
+.selectLanguage:focus,
+.selectLevel:focus,
+.selectPrice:focus {
+    border: 2px #f4c550 solid;
+
+}
+
  .selectLanguage {
      width: 221px;
  }
