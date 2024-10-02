@@ -1,8 +1,6 @@
 import style from "./TeacherCard.module.css";
 import { useState, useEffect } from "react";
 import { IoBookOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
-
 import { GoHeartFill } from "react-icons/go";
 import { GoHeart } from "react-icons/go";
 import { onAuthStateChanged } from "firebase/auth";
@@ -12,10 +10,11 @@ import "react-toastify/dist/ReactToastify.css";
 import BookModal from "../BookModal/BookModal.jsx";
 import Details from "../Details/Details.jsx";
 
-const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
+const TeacherCard = ({ teacher }) => {
   const [isVisibleHeart, setVisibleHeart] = useState(false);
   const [user, setUser] = useState(null);
   const [isBookModalOpen, setBookModalOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -61,6 +60,9 @@ const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
       return;
     }
     setBookModalOpen(true);
+  };
+  const onReadMore = () => {
+    setShowDetails(true);
   };
 
   return (
@@ -124,16 +126,12 @@ const TeacherCard = ({ teacher, showDetails, onReadMore }) => {
           </p>
 
           {!showDetails && (
-            <Link
-              className={style.link}
-              state={{ teacher }}
-              onClick={() => onReadMore(teacher.id)}
-            >
+            <button type="button" className={style.link} onClick={onReadMore}>
               Read more
-            </Link>
+            </button>
           )}
 
-          {showDetails && <Details />}
+          {showDetails && <Details teacher={teacher} />}
         </div>
         <div className={style.levelsList}>
           {teacher.levels.map((level, index) => (

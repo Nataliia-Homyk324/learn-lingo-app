@@ -113,6 +113,7 @@
     color: #121417;
     border: none;
     background-color: #fff;
+    align-self: flex-start;
 
 }
 .link:hover {

@@ -1,12 +1,8 @@
 import style from "./Details.module.css";
 import avatar from "../../assets/img/avatar.jpg";
 import Loader from "../Loader/Loader.jsx";
-import { useLocation } from "react-router-dom";
 
-const Details = () => {
-  const location = useLocation();
-  const { teacher } = location.state || {};
-
+const Details = ({ teacher }) => {
   if (!teacher) {
     return <Loader />;
   }

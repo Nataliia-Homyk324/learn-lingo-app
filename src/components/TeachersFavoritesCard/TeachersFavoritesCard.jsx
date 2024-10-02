@@ -1,19 +1,14 @@
 import style from "./TeachersFavoritesCard.module.css";
 import { useState } from "react";
 import { IoBookOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
 import Details from "../Details/Details.jsx";
 import { GoHeartFill } from "react-icons/go";
 import "react-toastify/dist/ReactToastify.css";
 import BookModal from "../BookModal/BookModal.jsx";
 
-const TeachersFavoritesCard = ({
-  teacher,
-  showDetails,
-  onToggleFavorite,
-  onReadMore,
-}) => {
+const TeachersFavoritesCard = ({ teacher, onToggleFavorite }) => {
   const [isBookModalOpen, setBookModalOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
 
   const handleClickButtonHeart = () => {
     onToggleFavorite(teacher.id);
@@ -21,6 +16,11 @@ const TeachersFavoritesCard = ({
   const handleBookLesson = () => {
     setBookModalOpen(true);
   };
+
+  const onReadMore = () => {
+    setShowDetails(true);
+  };
+
   return (
     <div>
       <div className={style.teacherCard}>
@@ -79,16 +79,12 @@ const TeachersFavoritesCard = ({
             </p>
 
             {!showDetails && (
-              <Link
-                className={style.link}
-                state={{ teacher }}
-                onClick={() => onReadMore(teacher.id)}
-              >
+              <button className={style.link} onClick={onReadMore}>
                 Read more
-              </Link>
+              </button>
             )}
 
-            {showDetails && <Details />}
+            {showDetails && <Details teacher={teacher} />}
           </div>
           <div className={style.levelsList}>
             {teacher.levels.map((level, index) => (

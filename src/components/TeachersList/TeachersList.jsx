@@ -13,7 +13,6 @@ const TeachersList = ({ selectedLanguage, selectedLevel, selectedPrice }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const [expandedTeacherId, setExpandedTeacherId] = useState(null);
   const [filteredTeachers, setFilteredTeachers] = useState([]);
 
   const fetchTeachers = async (page) => {
@@ -72,10 +71,6 @@ const TeachersList = ({ selectedLanguage, selectedLevel, selectedPrice }) => {
     }
   };
 
-  const handleReadMore = (id) => {
-    setExpandedTeacherId((prevId) => (prevId === id ? null : id));
-  };
-
   return (
     <div>
       {loading ? (
@@ -87,12 +82,7 @@ const TeachersList = ({ selectedLanguage, selectedLevel, selectedPrice }) => {
       ) : (
         <>
           {filteredTeachers.map((teacher) => (
-            <TeacherCard
-              key={teacher.id}
-              teacher={teacher}
-              showDetails={expandedTeacherId === teacher.id}
-              onReadMore={handleReadMore}
-            />
+            <TeacherCard key={teacher.id} teacher={teacher} />
           ))}
 
           {hasMore && (

@@ -5,7 +5,6 @@ import Loader from "../Loader/Loader.jsx";
 
 const TeachersFavoritesList = () => {
   const [loading, setLoading] = useState(false);
-  const [expandedTeacherId, setExpandedTeacherId] = useState(null);
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
@@ -18,10 +17,6 @@ const TeachersFavoritesList = () => {
     const updatedTeachers = teachers.filter((teacher) => teacher.id !== id);
     setTeachers(updatedTeachers);
     localStorage.setItem("favorites", JSON.stringify(updatedTeachers));
-  };
-
-  const handleReadMore = (id) => {
-    setExpandedTeacherId((prevId) => (prevId === id ? null : id));
   };
 
   return (
@@ -39,8 +34,6 @@ const TeachersFavoritesList = () => {
               key={teacher.id}
               teacher={teacher}
               onToggleFavorite={handleToggleFavorite}
-              showDetails={expandedTeacherId === teacher.id}
-              onReadMore={handleReadMore}
             />
           ))}
         </>
